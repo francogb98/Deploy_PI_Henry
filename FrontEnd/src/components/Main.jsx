@@ -11,13 +11,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import style from "./main.module.css";
 import Registro from "./User/Registro";
-
+import axios from "axios";
 function Main() {
   const location = useLocation();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
+    axios.post("/diets");
     dispatch(getDiets());
   }, [dispatch]);
   return (
