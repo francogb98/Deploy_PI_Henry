@@ -5,7 +5,7 @@ import NewRecipe from "./Form/NewRecipe";
 import Detail from "./Detail/Detail";
 import Nav from "./Nav/Nav";
 import User from "./User/User";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getDiets } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -13,17 +13,11 @@ import style from "./main.module.css";
 import Registro from "./User/Registro";
 import axios from "axios";
 function Main() {
-  const [isMounted, setIsMounted] = useState(false);
-
   const location = useLocation();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    if (!isMounted) {
-      axios.post("/diets");
-      setIsMounted(true);
-    }
     dispatch(getDiets());
   }, [dispatch, isMounted]);
   return (
