@@ -79,3 +79,10 @@
   width: 100px;
   cursor: pointer;
 }
+
+@media (max-width: 760px) {
+  .form {
+    width: 100%;
+    align-items: center;
+  }
+}
