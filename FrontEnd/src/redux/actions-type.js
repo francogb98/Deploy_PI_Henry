@@ -1,0 +1,13 @@
+export const USER_INIT = "USER_INIT";
+export const USER_LOGOUT = "USER_LOGOUT";
+export const ADD_RECIPES = "ADD_RECIPES";
+export const GET_DIETS = "GET_DIETS";
+export const ADD_RECIPES_BYID = "ADD_RECIPES_BYID";
+export const DELETE_RECIPES_BYID = "DELETE_RECIPES_BYID";
+export const GET_RECIPES_BYNAME = "GET_RECIPES_BYNAME";
+export const FILTER_BY_DIET = "FILTER_BY_DIET";
+export const FILTER_BY_CREATED = "FILTER_BY_CREATED";
+
+export const ORDER = "ORDER";
+
+export const SPLIT_RECIPES = "SPLIT_RECIPES";

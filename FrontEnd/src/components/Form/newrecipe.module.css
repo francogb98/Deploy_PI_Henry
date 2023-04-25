@@ -1,0 +1,171 @@
+.body {
+  width: 100%;
+  background-color: white;
+  height: 657px;
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: grey;
+}
+.title {
+  text-align: center;
+  font-size: 45px;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+}
+.form {
+  padding: 4px;
+  background-color: aliceblue;
+  display: flex;
+  height: 473px;
+  margin: 20px auto;
+  border: 2px solid black;
+  border-radius: 3px;
+  box-shadow: 5px 5px 5px black;
+  width: 50%;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 200px;
+}
+textarea {
+  height: 100px;
+  width: 200px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+label {
+  color: blueviolet;
+}
+button {
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+  height: fit-content;
+}
+
+.data {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  justify-content: space-between;
+  gap: 10px;
+  font-weight: bold;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.step {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+.diet {
+  display: flex;
+  flex-direction: row;
+  width: 270px;
+  margin-left: auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  gap: 10px;
+  height: 200px;
+  color: black;
+}
+.diet > label {
+  color: black;
+}
+
+.buttonSubmit {
+  width: 220px;
+  padding: 4px;
+  margin-top: -6px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+  margin-top: -5px;
+  margin-right: 5px;
+}
+
+.error {
+  width: fit-content;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid red;
+  background-color: rgb(255, 0, 0, 0.3);
+  color: white;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.success {
+  width: 300px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid green;
+  background-color: rgba(0, 250, 0, 0.3);
+  color: black;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.buttonHome {
+  width: 200px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  background-color: yellow;
+  border-radius: 3px;
+  margin: 10px 0 10px 10px;
+  cursor: pointer;
+}
+.buttonHome:hover {
+  background-color: black;
+  border: 1px solid white;
+  color: yellow;
+}
+
+.reset {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.reset > input {
+  width: fit-content;
+  height: fit-content;
+}
+
+@media (max-width: 970px) {
+  .form {
+    width: 70%;
+  }
+}
+
+@media (max-width: 725px) {
+  .form {
+    width: 80%;
+  }
+}
+@media (max-width: 610px) {
+  .data {
+    flex-direction: column;
+  }
+  .form {
+    height: fit-content;
+    width: 90%;
+  }
+}
