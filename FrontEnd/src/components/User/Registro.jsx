@@ -59,7 +59,7 @@ function User() {
     }
 
     try {
-      await axios.post("http://localhost:3001/user", user);
+      await axios.post("/user", user);
       setError({
         state: "success",
         msg: "Usuario Creado con exito",

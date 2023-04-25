@@ -40,7 +40,7 @@ function User() {
 
     try {
       const resp = await axios.get(
-        `http://localhost:3001/user?email=${user.email}&&password=${user.password}`
+        `/user?email=${user.email}&&password=${user.password}`
       );
       dispatch(createUser(resp.data));
       setUser({
