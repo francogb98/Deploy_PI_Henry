@@ -42,6 +42,7 @@ function User() {
       const resp = await axios.get(
         `/user?email=${user.email}&&password=${user.password}`
       );
+      axios.post("/diets");
       dispatch(createUser(resp.data));
       setUser({
         email: "",
