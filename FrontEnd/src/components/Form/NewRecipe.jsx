@@ -46,15 +46,12 @@ function NewRecipe() {
     e.preventDefault();
     try {
       //si toda la informacion es correcta ejecutamos el post
-      const response = await axios.post(
-        `http://localhost:3001/recipes`,
-        recipe
-      );
+      const response = await axios.post(`/recipes`, recipe);
       const userRecipe = {
         userId: user.ID,
         recipeId: response.data.ID,
       };
-      await axios.put(`http://localhost:3001/user`, userRecipe);
+      await axios.put(`/user`, userRecipe);
 
       //reiniciamos los estados
       setData({
