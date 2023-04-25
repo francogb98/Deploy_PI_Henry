@@ -13,14 +13,19 @@ import style from "./main.module.css";
 import Registro from "./User/Registro";
 import axios from "axios";
 function Main() {
+  const [isMounted, setIsMounted] = useState(false);
+
   const location = useLocation();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    axios.post("/diets");
+    if (!isMounted) {
+      axios.post("/diets");
+      setIsMounted(true);
+    }
     dispatch(getDiets());
-  }, [dispatch]);
+  }, [dispatch, isMounted]);
   return (
     <div className={style.body}>
       {location.pathname !== "/" &&
