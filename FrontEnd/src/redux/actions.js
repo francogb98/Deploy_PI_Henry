@@ -31,7 +31,7 @@ export function userLogOut() {
 
 export function addRecipes() {
   return async (dispatch) => {
-    const resp = await axios(`http://localhost:3001/recipes`);
+    const resp = await axios(`/recipes`);
     dispatch({
       type: ADD_RECIPES,
       payload: resp.data,
@@ -40,7 +40,7 @@ export function addRecipes() {
 }
 export function getDiets(resp) {
   return async (dispatch) => {
-    const resp = await axios("http://localhost:3001/diets");
+    const resp = await axios("/diets");
     dispatch({
       type: GET_DIETS,
       payload: resp.data,
@@ -75,7 +75,7 @@ export function filterByCreated(create) {
 
 export function addRecipesById(id) {
   return async (dispatch) => {
-    const resp = await axios(`http://localhost:3001/recipes/${id}`);
+    const resp = await axios(`/recipes/${id}`);
     dispatch({
       type: ADD_RECIPES_BYID,
       payload: resp.data,
@@ -92,9 +92,7 @@ export function deleteRecipesById() {
 
 export function getRecipesByName(nameRecipe) {
   return async (dispatch) => {
-    const resp = await axios(
-      `http://localhost:3001/recipes?name=${nameRecipe}`
-    );
+    const resp = await axios(`/recipes?name=${nameRecipe}`);
 
     dispatch({
       type: GET_RECIPES_BYNAME,
