@@ -10,6 +10,7 @@ import {
   ORDER,
   USER_INIT,
   USER_LOGOUT,
+  DELETE_RECIPES_BYNAME,
 } from "./actions-type";
 import axios from "axios";
 
@@ -38,6 +39,7 @@ export function addRecipes() {
     });
   };
 }
+
 export function getDiets(resp) {
   return async (dispatch) => {
     const resp = await axios("/diets");
@@ -97,6 +99,13 @@ export function getRecipesByName(nameRecipe) {
     dispatch({
       type: GET_RECIPES_BYNAME,
       payload: resp.data,
+    });
+  };
+}
+export function deleteRecipesByName() {
+  return async (dispatch) => {
+    dispatch({
+      type: DELETE_RECIPES_BYNAME,
     });
   };
 }

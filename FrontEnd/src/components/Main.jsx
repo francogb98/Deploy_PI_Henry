@@ -12,14 +12,29 @@ import { useDispatch, useSelector } from "react-redux";
 import style from "./main.module.css";
 import Registro from "./User/Registro";
 import axios from "axios";
+
 function Main() {
   const location = useLocation();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    dispatch(getDiets());
-  }, [dispatch, isMounted]);
+    async function fetchData() {
+      try {
+        const result = await axios("/diets");
+        console.log(result.data);
+        if (result.data.length === 0) {
+          await axios.post("/diets"); // espera a que el POST se complete
+          console.log("ejecute un post");
+        }
+        dispatch(getDiets());
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchData();
+  }, [dispatch]);
   return (
     <div className={style.body}>
       {location.pathname !== "/" &&

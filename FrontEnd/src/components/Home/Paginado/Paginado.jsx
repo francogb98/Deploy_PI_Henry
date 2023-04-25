@@ -3,7 +3,7 @@ import style from "./paginado.module.css";
 
 function Paginado({ split, buttonValue, activeButton, setActiveButton }) {
   useEffect(() => {
-    setActiveButton(1);
+    setActiveButton("1");
   }, [setActiveButton]);
 
   const handleButtonClick = (e) => {

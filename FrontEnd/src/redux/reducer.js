@@ -2,6 +2,7 @@ import {
   ADD_RECIPES,
   ADD_RECIPES_BYID,
   GET_RECIPES_BYNAME,
+  DELETE_RECIPES_BYNAME,
   SPLIT_RECIPES,
   DELETE_RECIPES_BYID,
   FILTER_BY_DIET,
@@ -104,6 +105,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         recipesFilterByName: [...action.payload],
+      };
+    case DELETE_RECIPES_BYNAME:
+      return {
+        ...state,
+        recipesFilterByName: [],
       };
     case ORDER:
       const data = sort(action.payload, state.paginado);

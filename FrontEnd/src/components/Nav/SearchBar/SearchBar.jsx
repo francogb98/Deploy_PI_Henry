@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipesByName } from "../../../redux/actions";
+import { getRecipesByName, deleteRecipesByName } from "../../../redux/actions";
 
 import style from "./searchBar.module.css";
 import ResultsRecipes from "./results/ResultsRecipes";
@@ -29,8 +29,9 @@ function SearchBar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      dispatch(deleteRecipesByName());
     };
-  }, [searchBarRef]);
+  }, [dispatch, searchBarRef]);
   const handleClose = () => {
     setError(true);
   };
@@ -39,7 +40,7 @@ function SearchBar() {
     e.preventDefault();
 
     setLoading(true);
-    if (nameRecipe == "") {
+    if (nameRecipe === "") {
       setError(true);
     } else {
       dispatch(getRecipesByName(nameRecipe));
