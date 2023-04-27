@@ -34,21 +34,19 @@ function Data({ data, setData, setError }) {
         });
       }
     }
-    //verificamos que la imagen tenga formato jpeg y que sea un enlace
-    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-
-    if (name === "Image") {
-      if (
-        urlRegex.test(value) &&
-        (value.endsWith(".jpeg") || value.endsWith(".jpg"))
-      ) {
-        setError({
-          msg: "",
-          state: "",
-        });
+    if (name === "Imagen") {
+      if (value && value.type === "image/jpeg") {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          setData({
+            ...data,
+            [name]: event.target.result,
+          });
+        };
+        reader.readAsDataURL(value);
       } else {
         setError({
-          msg: `Formato de imagen incorrecto, verifica que sea un enlace con terminacion .jpeg o .jpg`,
+          msg: `Formato de imagen incorrecto, verifica que sea un archivo .jpeg o .jpg`,
           state: "error instruccion",
         });
       }
@@ -72,12 +70,11 @@ function Data({ data, setData, setError }) {
         />
       </div>
       <div className={style.data}>
-        <label htmlFor="">Image</label>
+        <label htmlFor="">Imagen</label>
         <input
-          type="text"
-          placeholder="inserte imagen"
-          name="Image"
-          value={data.Image}
+          type="file"
+          name="Imagen"
+          accept=".jpg, .jpeg"
           onChange={handleChange}
         />
       </div>
