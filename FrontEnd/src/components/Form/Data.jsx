@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import style from "./newrecipe.module.css";
 
@@ -34,23 +34,21 @@ function Data({ data, setData, setError }) {
         });
       }
     }
-    if (name === "Imagen") {
-      if (value && value.type === "image/jpeg") {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          setData({
-            ...data,
-            [name]: event.target.result,
-          });
-          setError({
-            msg: "",
-            state: "",
-          });
-        };
-        reader.readAsDataURL(value);
+    //verificamos que la imagen tenga formato jpeg y que sea un enlace
+    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+
+    if (name === "Image") {
+      if (
+        urlRegex.test(value) &&
+        (value.endsWith(".jpeg") || value.endsWith(".jpg"))
+      ) {
+        setError({
+          msg: "",
+          state: "",
+        });
       } else {
         setError({
-          msg: `Formato de imagen incorrecto, verifica que sea un archivo .jpeg o .jpg`,
+          msg: `Formato de imagen incorrecto, verifica que sea un enlace con terminacion .jpeg o .jpg`,
           state: "error instruccion",
         });
       }
@@ -60,9 +58,6 @@ function Data({ data, setData, setError }) {
       [name]: value,
     });
   };
-  useEffect(() => {
-    console.log("me actualice");
-  }, [setError]);
 
   return (
     <>
@@ -77,11 +72,12 @@ function Data({ data, setData, setError }) {
         />
       </div>
       <div className={style.data}>
-        <label htmlFor="">Imagen</label>
+        <label htmlFor="">Image</label>
         <input
-          type="file"
-          name="Imagen"
-          accept=".jpg, .jpeg"
+          type="text"
+          placeholder="inserte imagen"
+          name="Image"
+          value={data.Image}
           onChange={handleChange}
         />
       </div>
