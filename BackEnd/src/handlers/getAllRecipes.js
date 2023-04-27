@@ -3,7 +3,7 @@ const { Recipe, Diet, User } = require("../db");
 const axios = require("axios");
 
 require("dotenv").config();
-const { API_KEY } = process.env;
+const { API_KEY_ALLRECIPES } = process.env;
 
 const getAllRecipes = async () => {
   const recipesInBDD = await Recipe.findAll({
@@ -29,7 +29,7 @@ const getAllRecipes = async () => {
 
   const num = 100 - recipesWithDiets.length;
   const resp = await axios(
-    `https://api.spoonacular.com/recipes/complexSearch?number=${num}&apiKey=${API_KEY}&addRecipeInformation=true`
+    `https://api.spoonacular.com/recipes/complexSearch?number=${num}&apiKey=${API_KEY_ALLRECIPES}&addRecipeInformation=true`
   );
 
   const apiRecipes = resp.data.results.map((e) => {

@@ -7,7 +7,7 @@ const { Op } = require("sequelize");
 
 const getName = async (nameQuery) => {
   const resp = await axios(
-    `https://api.spoonacular.com/recipes/complexSearch?query=${nameQuery}&apiKey=${API_KEY}`
+    `https://api.spoonacular.com/recipes/complexSearch?query=${nameQuery}&apiKey=${API_KEY_GETNAME}`
   );
   const obj = resp.data.results;
 

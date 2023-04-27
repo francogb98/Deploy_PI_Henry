@@ -1,14 +1,14 @@
 const axios = require("axios");
 
 require("dotenv").config();
-const { API_KEY } = process.env;
+const { API_KEY_POSTDIETS } = process.env;
 const { Diet } = require("../db");
 const { where } = require("sequelize");
 
 const postDiets = async (req, res) => {
   //buscamos en la api
   const resp = await axios(
-    `https://api.spoonacular.com/recipes/complexSearch?number=500&apiKey=${API_KEY}&addRecipeInformation=true`
+    `https://api.spoonacular.com/recipes/complexSearch?number=500&apiKey=${API_KEY_POSTDIETS}&addRecipeInformation=true`
   );
 
   //traigo 100 elementos para poder filtar los tipos de dieta
