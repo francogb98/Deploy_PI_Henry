@@ -51,9 +51,7 @@ function Home() {
     }, 900);
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log("me ejecute");
-  }, [setButton]);
+  useEffect(() => {}, [setButton]);
 
   return (
     <div className={style.body}>

@@ -22,10 +22,9 @@ function Main() {
     async function fetchData() {
       try {
         const result = await axios("/diets");
-        console.log(result.data);
+
         if (result.data.length === 0) {
           await axios.post("/diets"); // espera a que el POST se complete
-          console.log("ejecute un post");
         }
         dispatch(getDiets());
       } catch (error) {

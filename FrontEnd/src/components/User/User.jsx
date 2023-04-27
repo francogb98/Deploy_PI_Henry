@@ -59,9 +59,7 @@ function User() {
     }
   };
 
-  useEffect(() => {
-    console.log("cambie");
-  }, [setError]);
+  useEffect(() => {}, [setError]);
 
   return (
     <div className={style.body}>

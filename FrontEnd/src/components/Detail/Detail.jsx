@@ -11,7 +11,6 @@ function Detail() {
 
   const dispatch = useDispatch();
   const detail = useSelector((state) => state.detail);
-  console.log(detail);
 
   useEffect(() => {
     dispatch(addRecipesById(id));

@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import style from "./results.module.css";
 
 function ResultsRecipes({ Image, Nombre, ID, handleClose }) {
-  console.log(Image, Nombre, ID);
-
   return (
     <div className={style.body} key={ID}>
       <Link to={`/detail/${ID}`}>

@@ -5,13 +5,14 @@ const postRecipe = async (req, res) => {
   try {
     const {
       Nombre,
-      Image,
       ResumenDelPlato,
       HealthScore,
       Instrucciones,
       diets,
       CreatedBy,
+      Image,
     } = req.body;
+
     if (!CreatedBy) {
       return res
         .status(400)
