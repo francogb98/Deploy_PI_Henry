@@ -112,7 +112,7 @@ export default function reducer(state = initialState, action) {
         recipesFilterByName: [],
       };
     case ORDER:
-      const data = sort(action.payload, state.paginado);
+      const data = sort(action.payload, state.recipes);
       return {
         ...state,
         recipesFilter: data,
