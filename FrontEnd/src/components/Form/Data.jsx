@@ -35,6 +35,10 @@ function Data({ data, setData, setError }) {
       }
     }
     if (name === "Imagen") {
+      setError({
+        msg: "",
+        state: "",
+      });
       if (value && value.type === "image/jpeg") {
         const reader = new FileReader();
         reader.onload = (event) => {
@@ -44,10 +48,6 @@ function Data({ data, setData, setError }) {
           });
         };
         reader.readAsDataURL(value);
-        setError({
-          msg: "",
-          state: "",
-        });
       } else {
         setError({
           msg: `Formato de imagen incorrecto, verifica que sea un archivo .jpeg o .jpg`,
