@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 require("dotenv").config();
-const { API_KEY } = process.env;
+const { API_KEY_GETNAME } = process.env;
 const { Recipe } = require("../db");
 const { Op } = require("sequelize");
 
