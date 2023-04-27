@@ -35,11 +35,11 @@ function Data({ data, setData, setError }) {
       }
     }
     if (name === "Imagen") {
-      setError({
-        msg: "",
-        state: "",
-      });
       if (value && value.type === "image/jpeg") {
+        setError({
+          msg: "",
+          state: "",
+        });
         const reader = new FileReader();
         reader.onload = (event) => {
           setData({
