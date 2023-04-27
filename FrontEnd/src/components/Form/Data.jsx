@@ -44,6 +44,10 @@ function Data({ data, setData, setError }) {
           });
         };
         reader.readAsDataURL(value);
+        setError({
+          msg: "",
+          state: "",
+        });
       } else {
         setError({
           msg: `Formato de imagen incorrecto, verifica que sea un archivo .jpeg o .jpg`,
