@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import style from "./newrecipe.module.css";
+import { log } from "console";
 
 function Data({ data, setData, setError }) {
   const handleChange = (e) => {
@@ -60,6 +61,9 @@ function Data({ data, setData, setError }) {
       [name]: value,
     });
   };
+  useEffect(() => {
+    console.log("me actualice");
+  }, [setError]);
 
   return (
     <>
